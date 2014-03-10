@@ -1,0 +1,17 @@
+{% extends "gallery/base.html" %}
+
+{% block content %}
+<div id="main" class="categories">
+	<ul id="photos" class="categories">
+		{% for category in categories %}			
+			<li class="galIcone">
+				<a	href="{% url 'category' category.id %}"
+					title="Voir la catégorie {{ category.name }}">
+					<span class="catTitle"><span class="catTitleCell">{{ category.name }}</span></span>
+					<img src="{{ category.icon }}" alt="{{ category.name }}" />
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock %}

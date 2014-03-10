@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" href="{% static 'gallery/css/default.css' %}" />
+    <title>Anne Colin, Photographe - Accueil</title>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body>
+	<div id="wrapper">
+		
+		<header id="header">
+			<h1><img src="{% static 'gallery/graph/logo.png' %}" alt="" /></h1>
+			<nav>
+				<ul id="speedbar">
+					<li class="first"><strong><a href="/" title="Accès à la page d'accueil">Accueil</a></strong></li>
+					<li><a href="trucs.htm" title="Accès à mes trucs et astuces">Expositions</a></li>
+					<li><a href="/contact/" title="Accès à la page de contact">Me contacter</a></li>
+					<li class="last">Formation : EFET Paris, 2004-2006</li>
+				</ul>
+			</nav>
+		</header>
+		
+		{% block content %}{% endblock %}
+		
+		<footer id="footer">Photos © Anne Colin - Les photographies présentées sur ce site sont les propriétés exclusives d'Anne Colin. Aucune reproduction, même partielle n'est autorisée sans accord explicite.</footer>	
+	</div>
+</body>
+</html>
