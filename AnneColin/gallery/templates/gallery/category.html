@@ -1,0 +1,47 @@
+{% extends "gallery/base.html" %}
+
+{% block nav %}
+	<div id="prev-next">
+		<c:if test="${!empty prevCat}">
+			<a	id="nav-previous"
+				href="<c:url value="/category"><c:param name="categoryId" value="${prevCat.categoryId}"/></c:url>"
+				title="Accès à la catégorie ${prevCat.name}">← Précédente</a>
+		</c:if>
+		<c:if test="${!empty nextCat}">
+			<a	id="nav-next"
+				href="<c:url value="/category"><c:param name="categoryId" value="${nextCat.categoryId}"/></c:url>"
+				title="Accès à la catégorie ${nextCat.name}">Suivante →</a>
+		</c:if>
+	</div>
+{% endblock %}
+		
+{% block aside %}
+	<aside id="sidebar">
+		<h1>{{ category.name }}</h1>
+		<p>Mise à jour le <time datetime="{{ category.pub_date|date:"c" }}" pubdate="pubdate">{{ category.pub_date|date:"j E Y" }}</time></p>
+		<h2>Toutes les galleries</h2>
+		<ul id="thumbnails">
+		{% for sideCategory in categories %}
+			<li>
+				<a href="{% url 'category' sideCategory.id %}" title="Voir la catégorie {{ sideCategory.name }}">
+					<img src="{{ sideCategory.icon }}" alt="Photo {{ sideCategory.name }}" />
+				</a>
+			</li>
+		{% endfor %}
+		</ul>
+	</aside>
+{% endblock %}
+		
+
+{% block content %}
+	<div id="main">
+		<ul id="photos">
+			{% for picture in pictures %}
+				<li><a href="{% url 'picture' picture.id %}" title="Accès à la photo {{ picture.id }}">
+						<img src="{{ picture.image }}" alt="{{ picture.title }}" />
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
