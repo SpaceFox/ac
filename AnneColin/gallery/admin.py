@@ -1,8 +1,9 @@
 from django.contrib import admin
 from gallery.models import Category, Format, Picture, Price
+from sorl.thumbnail.admin import AdminImageMixin
 
-class CategoryAdmin(admin.ModelAdmin):
-    fields = ['name', 'slug', 'icon_full', 'description']
+class CategoryAdmin(AdminImageMixin, admin.ModelAdmin):
+    pass
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Format)
