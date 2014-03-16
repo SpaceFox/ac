@@ -1,0 +1,3 @@
+django
+pil
+sorl-thumbnail

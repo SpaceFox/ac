@@ -1,0 +1,53 @@
+{% extends "gallery/base.html" %}
+
+{% block nav %}
+	<div id="prev-next">
+		<c:if test="${!empty prevPhoto}">
+			<a	id="nav-previous"
+				href="<c:url value="/photo"><c:param name="photoId" value="${prevPhoto.photoId}"/></c:url>"
+				title="Accès à la photo ${prevPhoto.title}">← Précédente</a>
+		</c:if>
+		<c:if test="${!empty nextPhoto}">
+			<a	id="nav-next"
+				href="<c:url value="/photo"><c:param name="photoId" value="${nextPhoto.photoId}"/></c:url>"
+				title="Accès à la photo ${nextPhoto.title}">Suivante →</a>
+		</c:if>
+	</div>
+{% endblock %}
+		
+{% block aside %}
+	<aside id="sidebar">
+		<h1>{{ picture.title }}</h1>
+		<p>Publiée le <time datetime="{{ picture.pub_date|date:"c" }}" pubdate="pubdate">{{ picture.pub_date|date:"j E Y" }}</time</p>
+		<h2>Cette photo fait partie de<br/>
+			<a href="{% url 'category' picture.category.id %}" title="Accès à la catégorie">{% picture.category.name %}</a>
+		</h2>
+		<ul id="thumbnails">	<!-- 12 miniatures max (sans les prix) -->
+			{% for sidePicture in pictures %}
+				<li>
+					<a	href="{% url 'picture' sidePicture.id %}"
+						title="Accès à la photo {{ picture.title }}">
+						<img src="{{ picture.image.url }}" alt="Photo {{ picture.title }}" />
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<c:if test="${!empty prices}">
+			<h2>Tirages d'art</h2>
+			<ul>
+				<c:forEach items="${prices}" var="price">
+					<li>${price.format.name} : <strong>${price.formattedValue}</strong></li>
+				</c:forEach>
+				<li>Autres formats : <a href="">me contacter</a></li>
+			</ul>
+		</c:if>
+	</aside>
+{% endblock %}
+		
+
+{% block content %}
+	<div id="main">
+		<img src="{{ picture.image }}" alt="{{ picture.title }}" />
+		<p>{{ picture.description }}</p>
+	</div>
+{% endblock %}
