@@ -1,5 +1,7 @@
 {% extends "gallery/base.html" %}
 
+{% load thumbnail %}
+
 {% block nav %}
 	<div id="prev-next">
 		<c:if test="${!empty prevPhoto}">
@@ -20,14 +22,15 @@
 		<h1>{{ picture.title }}</h1>
 		<p>Publiée le <time datetime="{{ picture.pub_date|date:"c" }}" pubdate="pubdate">{{ picture.pub_date|date:"j E Y" }}</time</p>
 		<h2>Cette photo fait partie de<br/>
-			<a href="{% url 'category' picture.category.id %}" title="Accès à la catégorie">{% picture.category.name %}</a>
+			<a href="{% url 'category' picture.category.id %}" title="Accès à la catégorie">{{ picture.category.name }}</a>
 		</h2>
 		<ul id="thumbnails">	<!-- 12 miniatures max (sans les prix) -->
 			{% for sidePicture in pictures %}
 				<li>
-					<a	href="{% url 'picture' sidePicture.id %}"
-						title="Accès à la photo {{ picture.title }}">
-						<img src="{{ picture.image.url }}" alt="Photo {{ picture.title }}" />
+					<a	href="{% url 'picture' sidePicture.id %}" title="Accès à la photo {{ picture.title }}">
+						{% thumbnail sidePicture.image "90x90" as im %}
+						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Photo {{ picture.title }}" />
+						{% endthumbnail %}
 					</a>
 				</li>
 			{% endfor %}
@@ -47,7 +50,9 @@
 
 {% block content %}
 	<div id="main">
-		<img src="{{ picture.image }}" alt="{{ picture.title }}" />
+		<img src="{{ picture.image.url }}" alt="{{ picture.title }}" />
+		{% if picture.description %}
 		<p>{{ picture.description }}</p>
+		{% endif %}
 	</div>
 {% endblock %}

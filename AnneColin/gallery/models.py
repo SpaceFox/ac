@@ -10,7 +10,7 @@ class Category(models.Model):
         
     name        = models.CharField(max_length = 80)
     slug        = models.SlugField(max_length = 80)
-    icon        = ImageField(upload_to = 'categories', blank = True)
+    icon        = ImageField(upload_to = 'categories')
     description = models.TextField(blank = True, null = True)
     pub_date    = models.DateTimeField(auto_now_add = True)
     

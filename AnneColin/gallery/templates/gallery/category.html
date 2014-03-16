@@ -26,8 +26,8 @@
 		{% for sideCategory in categories %}
 			<li>
 				<a href="{% url 'category' sideCategory.id %}" title="Voir la catégorie {{ sideCategory.name }}">
-					{% thumbnail sideCategory.icon "90x90" crop="center" as im %}
-					<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Photo {{ sideCategory.name }}" />
+					{% thumbnail sideCategory.icon "90x90" as im %}
+					<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Catégorie : {{ sideCategory.name }}" />
 					{% endthumbnail %}
 				</a>
 			</li>
@@ -41,8 +41,11 @@
 	<div id="main">
 		<ul id="photos">
 			{% for picture in pictures %}
-				<li><a href="{% url 'picture' picture.id %}" title="Accès à la photo {{ picture.id }}">
-						<img src="{{ picture.image }}" alt="{{ picture.title }}" />
+				<li>
+					<a href="{% url 'picture' picture.id %}" title="Accès à la photo {{ picture.id }}">
+						{% thumbnail picture.image "165x165" as im %}
+						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ picture.title }}" />
+						{% endthumbnail %}
 					</a>
 				</li>
 			{% endfor %}
