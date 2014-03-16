@@ -9,7 +9,6 @@ class Category(models.Model):
         verbose_name_plural = "Catégories"
         
     name        = models.CharField(max_length = 80)
-    slug        = models.SlugField(max_length = 80)
     icon        = ImageField(upload_to = 'categories')
     description = models.TextField(blank = True, null = True)
     pub_date    = models.DateTimeField(auto_now_add = True)
@@ -29,7 +28,6 @@ class Picture(models.Model):
     category    = models.ForeignKey(Category)
     formats     = models.ManyToManyField(Format, through = 'Price')
     title       = models.CharField(max_length = 80)
-    slug        = models.SlugField(max_length = 80)
     image       = ImageField(upload_to = 'pictures')
     description = models.TextField(blank = True, null = True)
     pub_date    = models.DateTimeField(auto_now_add = True)
