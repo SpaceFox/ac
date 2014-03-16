@@ -4,16 +4,12 @@
 
 {% block nav %}
 	<div id="prev-next">
-		<c:if test="${!empty prevCat}">
-			<a	id="nav-previous"
-				href="<c:url value="/category"><c:param name="categoryId" value="${prevCat.categoryId}"/></c:url>"
-				title="Accès à la catégorie ${prevCat.name}">← Précédente</a>
-		</c:if>
-		<c:if test="${!empty nextCat}">
-			<a	id="nav-next"
-				href="<c:url value="/category"><c:param name="categoryId" value="${nextCat.categoryId}"/></c:url>"
-				title="Accès à la catégorie ${nextCat.name}">Suivante →</a>
-		</c:if>
+		{% if previous_cat %}
+			<a id="nav-previous" href="{% url 'category' previous_cat.id %}" title="Accès à la catégorie {{ previous_cat.name }}">← Précédente</a>
+		{% endif %}
+		{% if next_cat %}
+			<a id="nav-next" href="{% url 'category' next_cat.id %}" title="Accès à la catégorie {{ next_cat.name }}">Suivante →</a>
+		{% endif %}
 	</div>
 {% endblock %}
 		
@@ -23,11 +19,11 @@
 		<p>Mise à jour le <time datetime="{{ category.pub_date|date:"c" }}" pubdate="pubdate">{{ category.pub_date|date:"j E Y" }}</time></p>
 		<h2>Toutes les galleries</h2>
 		<ul id="thumbnails">
-		{% for sideCategory in categories %}
+		{% for side_category in categories %}
 			<li>
-				<a href="{% url 'category' sideCategory.id %}" title="Voir la catégorie {{ sideCategory.name }}">
-					{% thumbnail sideCategory.icon "90x90" as im %}
-					<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Catégorie : {{ sideCategory.name }}" />
+				<a href="{% url 'category' side_category.id %}" title="Voir la catégorie {{ side_category.name }}">
+					{% thumbnail side_category.icon "90x90" as im %}
+					<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Catégorie : {{ side_category.name }}" />
 					{% endthumbnail %}
 				</a>
 			</li>
