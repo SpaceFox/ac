@@ -4,16 +4,12 @@
 
 {% block nav %}
 	<div id="prev-next">
-		<c:if test="${!empty prevPhoto}">
-			<a	id="nav-previous"
-				href="<c:url value="/photo"><c:param name="photoId" value="${prevPhoto.photoId}"/></c:url>"
-				title="Accès à la photo ${prevPhoto.title}">← Précédente</a>
-		</c:if>
-		<c:if test="${!empty nextPhoto}">
-			<a	id="nav-next"
-				href="<c:url value="/photo"><c:param name="photoId" value="${nextPhoto.photoId}"/></c:url>"
-				title="Accès à la photo ${nextPhoto.title}">Suivante →</a>
-		</c:if>
+		{% if previous_pic %}
+			<a id="nav-previous" href="{% url 'picture' previous_pic.id %}" title="Accès à l'image {{ previous_pic.title }}">← Précédente</a>
+		{% endif %}
+		{% if next_pic %}
+			<a id="nav-next" href="{% url 'picture' next_pic.id %}" title="Accès à l'image {{ next_pic.title }}">Suivante →</a>
+		{% endif %}
 	</div>
 {% endblock %}
 		
