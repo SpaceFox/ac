@@ -7,7 +7,7 @@ class CategoryAdmin(AdminImageMixin, admin.ModelAdmin):
     pass
 
 class PictureAdmin(AdminImageMixin, admin.ModelAdmin):
-    list_display = ('category', 'title', 'pub_date')
+    list_display = ('title', 'category', 'pub_date')
     list_filter = ['category']
     pass
 

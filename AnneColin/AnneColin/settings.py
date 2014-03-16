@@ -36,13 +36,15 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    'debug_toolbar',
 
     'sorl.thumbnail',
     
     'gallery',
 )
+if (DEBUG):
+    INSTALLED_APPS += (   
+        'debug_toolbar',
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -54,6 +56,10 @@ MIDDLEWARE_CLASSES = (
     
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+if (DEBUG):
+    MIDDLEWARE_CLASSES += (   
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
 
 ROOT_URLCONF = 'AnneColin.urls'
 
