@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'sorl.thumbnail',
+    'easy_thumbnails',
     
     'gallery',
 )
@@ -111,3 +111,11 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'home': {'size': (165, 165)},
+        'gallery': {'size': (165, 165)},
+        'aside': {'size': (90, 60)},
+    },
+}
