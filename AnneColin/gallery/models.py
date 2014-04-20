@@ -1,6 +1,5 @@
 # coding: utf-8
 from django.db import models
-from sorl.thumbnail import ImageField
 
 # Create your models here.
 class Category(models.Model):
@@ -9,7 +8,7 @@ class Category(models.Model):
         verbose_name_plural = "Catégories"
         
     name        = models.CharField(max_length = 80)
-    icon        = ImageField(upload_to = 'categories')
+    icon        = models.ImageField(upload_to = 'categories')
     description = models.TextField(blank = True, null = True)
     pub_date    = models.DateTimeField(auto_now_add = True)
     
@@ -28,7 +27,7 @@ class Picture(models.Model):
     category    = models.ForeignKey(Category)
     formats     = models.ManyToManyField(Format, through = 'Price')
     title       = models.CharField(max_length = 80)
-    image       = ImageField(upload_to = 'pictures')
+    image       = models.ImageField(upload_to = 'pictures')
     description = models.TextField(blank = True, null = True)
     pub_date    = models.DateTimeField(auto_now_add = True)
     
