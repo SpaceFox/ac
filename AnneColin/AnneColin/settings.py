@@ -116,6 +116,7 @@ THUMBNAIL_ALIASES = {
     '': {
         'home': {'size': (165, 165), 'crop':'smart'},
         'gallery': {'size': (165, 165)},
-        'aside': {'size': (90, 60)},
+        'aside': {'size': (90, 90)},
+        'picture': {'size': (900, 600)},
     },
 }
