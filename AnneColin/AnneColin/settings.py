@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'sorl.thumbnail',
+    'easy_thumbnails',
     
     'gallery',
 )
@@ -60,6 +60,7 @@ if (DEBUG):
     MIDDLEWARE_CLASSES += (   
 #        'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
+    THUMBNAIL_DEBUG = True
 
 ROOT_URLCONF = 'AnneColin.urls'
 
@@ -111,3 +112,12 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'home': {'size': (165, 165), 'crop':'smart'},
+        'gallery': {'size': (165, 165)},
+        'aside': {'size': (90, 90)},
+        'picture': {'size': (900, 600)},
+    },
+}

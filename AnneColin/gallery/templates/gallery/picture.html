@@ -24,9 +24,7 @@
 			{% for sidePicture in pictures %}
 				<li>
 					<a	href="{% url 'picture' sidePicture.id %}" title="Accès à la photo {{ picture.title }}">
-						{% thumbnail sidePicture.image "90x90" as im %}
-						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Photo {{ picture.title }}" />
-						{% endthumbnail %}
+						<img src="{{ sidePicture.image|thumbnail_url:'aside' }}" alt="Photo {{ picture.title }}" />
 					</a>
 				</li>
 			{% endfor %}
@@ -48,7 +46,7 @@
 
 {% block content %}
 	<div id="main">
-		<img src="{{ picture.image.url }}" alt="{{ picture.title }}" />
+		<img src="{{ picture.image|thumbnail_url:'picture' }}" alt="{{ picture.title }}" />
 		{% if picture.description %}
 		<p>{{ picture.description }}</p>
 		{% endif %}
