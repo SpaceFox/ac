@@ -1,5 +1,7 @@
 {% extends "gallery/base.html" %}
 
+{% load thumbnail %}
+
 {% block content %}
 <div id="main" class="categories">
 	<ul id="photos" class="categories">
@@ -8,7 +10,7 @@
 				<a	href="{% url 'category' category.id %}"
 					title="Voir la catégorie {{ category.name }}">
 					<span class="catTitle"><span class="catTitleCell">{{ category.name }}</span></span>
-					<img src="{{ category.icon.url }}" alt="{{ category.name }}" />
+					<img src="{{ category.icon|thumbnail_url:'home' }}" alt="{{ category.name }}" />
 				</a>
 			</li>
 		{% endfor %}
