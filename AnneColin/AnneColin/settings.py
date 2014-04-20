@@ -60,6 +60,7 @@ if (DEBUG):
     MIDDLEWARE_CLASSES += (   
 #        'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
+    THUMBNAIL_DEBUG = True
 
 ROOT_URLCONF = 'AnneColin.urls'
 
