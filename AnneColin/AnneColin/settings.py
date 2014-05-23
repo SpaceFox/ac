@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'south',
     'easy_thumbnails',
     
     'gallery',
@@ -56,7 +57,7 @@ MIDDLEWARE_CLASSES = (
     
 #    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
-if (DEBUG):
+if DEBUG:
     MIDDLEWARE_CLASSES += (   
 #        'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
@@ -115,9 +116,12 @@ STATIC_URL = '/static/'
 
 THUMBNAIL_ALIASES = {
     '': {
-        'home': {'size': (165, 165), 'crop':'smart'},
+        'home': {'size': (165, 165), 'crop': 'smart'},
         'gallery': {'size': (165, 165)},
         'aside': {'size': (90, 90)},
         'picture': {'size': (900, 600)},
     },
+}
+SOUTH_MIGRATION_MODULES = {
+    'easy_thumbnails': 'easy_thumbnails.south_migrations',
 }
