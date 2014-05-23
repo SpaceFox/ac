@@ -2,3 +2,4 @@
 *.pyc
 AnneColin/media/categories/
 AnneColin/media/pictures/
+.idea/
