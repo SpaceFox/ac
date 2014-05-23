@@ -29,17 +29,15 @@
 				</li>
 			{% endfor %}
 		</ul>
-		<!--
-		<c:if test="${!empty prices}">
+		{% if picture.formats.all %}
 			<h2>Tirages d'art</h2>
 			<ul>
-				<c:forEach items="${prices}" var="price">
-					<li>${price.format.name} : <strong>${price.formattedValue}</strong></li>
-				</c:forEach>
+				{% for format in picture.formats.all %}
+					<li>{{ format.name }} : <strong>{{ format.price|floatformat:2 }} €</strong></li>
+				{% endfor %}
 				<li>Autres formats : <a href="">me contacter</a></li>
 			</ul>
-		</c:if>
-		-->
+		{% endif %}
 	</aside>
 {% endblock %}
 		
