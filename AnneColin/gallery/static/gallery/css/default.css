@@ -2,7 +2,7 @@
 body {
 	margin: 1em auto;
 	padding: 0;
-	font: 0.75em "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	font: 14px Raleway, sans-serif;
 	background-color: black;
 	color: white;
 	width: 1150px;
@@ -11,19 +11,8 @@ body {
 a {
 	color: #CCC;
 }
-a:visited {
-	color: gray;
-}
 a:hover {
 	color: white;
-}
-a img,
-#main img {
-	border: 1px solid gray;
-}
-a img:hover,
-#main img:hover {
-	border: 1px solid white;
 }
 header {
 	position: relative;
@@ -47,31 +36,23 @@ aside ul {
 	padding: 0;
 }
 #speedbar li {
-	background: linear-gradient(to bottom, #333 0, #222 100%);
-	background: -webkit-linear-gradient(bottom, #222 0, #333 100%);
 	margin: 0;	
 	padding: 0.5em 1em;
 	float: left;
 	display: inline;
-	border-right: 1px solid #111;
 }
 #speedbar li a {
 	text-decoration: none;
 }
 #speedbar li:hover {
-	background: linear-gradient(to bottom, #444 0, #333 100%);
-	background: -webkit-linear-gradient(bottom, #333 0, #444 100%);
+    color: black;
+    background-color: #ccc;
 }
-#speedbar .first {
-	border-radius: 0 0 0 0.5em;
+#speedbar li:hover a {
+    color: black;
 }
 #speedbar .last {
-	border-radius: 0 0 0.5em 0;
 	border-right: none;
-}
-#speedbar li.last:hover {
-	background: linear-gradient(to bottom, #333 0, #222 100%);
-	background: -webkit-linear-gradient(bottom, #222 0, #333 100%);
 }
 
 #prev-next {
@@ -81,21 +62,12 @@ aside ul {
 	text-align: center;	
 }
 #prev-next a {
-	background: linear-gradient(to bottom, #333 0, #222 100%);
-	background: -webkit-linear-gradient(bottom, #222 0, #333 100%);
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 }
 #prev-next a:hover {
-	background: linear-gradient(to bottom, #444 0, #333 100%);
-	background: -webkit-linear-gradient(bottom, #333 0, #444 100%);
-}
-#nav-previous {
-	border-radius: 0.5em 0 0 0.5em;
-	border-right: 1px solid #111;
-}
-#nav-next {
-	border-radius: 0 0.5em 0.5em 0;
+    color: black;
+    background-color: #CCC;
 }
 
 #main {
@@ -153,9 +125,8 @@ aside h1 {
 	margin-top: 0;
 }
 aside h2 {
-	font-size: 1.2em;
-	padding-bottom: 0.5em;
-	border-bottom: 1px solid gray;
+	font-size: 120%;
+	margin-bottom: 0.5em;
 }
 aside img {
 	padding: 1px;
@@ -169,7 +140,7 @@ aside img {
 
 footer {
 	clear: both;
-	border-top: 1px solid  gray;
+	font-size: 90%;
 	padding-top: 0.5em;
 	margin-top: 1em;
 }
@@ -183,7 +154,6 @@ footer {
 	font-size: 2em;
 	font-weight: bold;
 	text-align: center;
-	border: 1px solid white;
 	background-color: rgba(0, 0, 0, 0.5);
 	visibility: hidden;
 }
