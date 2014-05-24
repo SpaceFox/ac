@@ -1,0 +1,105 @@
+-   model: gallery.Category
+    pk: 1
+    fields:
+        name: Fruits et Légumes
+        icon: categories/1.jpg
+        pub_date: 2008-05-08 15:00:15
+ 
+-   model: gallery.Category
+    pk: 2
+    fields:
+        name: Avant la pluie
+        icon: categories/2.jpg
+        pub_date: 2008-05-08 15:11:37
+ 
+-   model: gallery.Category
+    pk: 3
+    fields:
+        name: Paysages
+        icon: categories/3.jpg
+        pub_date: 2008-05-08 15:19:03
+ 
+-   model: gallery.Category
+    pk: 4
+    fields:
+        name: Fleurs
+        icon: categories/4.jpg
+        pub_date: 2008-06-25 18:46:35
+ 
+-   model: gallery.Category
+    pk: 5
+    fields:
+        name: Givre
+        icon: categories/5.jpg
+        pub_date: 2008-06-25 19:10:36
+ 
+-   model: gallery.Category
+    pk: 6
+    fields:
+        name: Comme un tableau
+        icon: categories/6.jpg
+        pub_date: 2008-06-25 19:27:47
+ 
+-   model: gallery.Category
+    pk: 7
+    fields:
+        name: Lumière verte
+        icon: categories/7.jpg
+        pub_date: 2008-07-10 15:44:29
+ 
+-   model: gallery.Category
+    pk: 8
+    fields:
+        name: Nature
+        icon: categories/8.jpg
+        pub_date: 2008-12-04 13:43:27
+ 
+-   model: gallery.Category
+    pk: 9
+    fields:
+        name: Hiver 2009
+        icon: categories/9.jpg
+        pub_date: 2009-01-14 15:03:50
+ 
+-   model: gallery.Category
+    pk: 12
+    fields:
+        name: Dans le brouillard
+        icon: categories/12.jpg
+        pub_date: 2009-06-22 21:20:36
+ 
+-   model: gallery.Category
+    pk: 13
+    fields:
+        name: Couleurs marines
+        icon: categories/13.jpg
+        pub_date: 2009-08-31 14:56:48
+ 
+-   model: gallery.Category
+    pk: 14
+    fields:
+        name: Au bord de l'eau
+        icon: categories/14.jpg
+        pub_date: 2009-11-22 16:24:47
+ 
+-   model: gallery.Category
+    pk: 16
+    fields:
+        name: Neige 2010
+        icon: categories/16.jpg
+        pub_date: 2010-01-27 17:03:59
+ 
+-   model: gallery.Category
+    pk: 17
+    fields:
+        name: Alpes
+        icon: categories/17.jpg
+        pub_date: 2010-05-04 22:05:36
+ 
+-   model: gallery.Category
+    pk: 18
+    fields:
+        name: Fleurs des Alpes
+        icon: categories/18.jpg
+        pub_date: 2010-11-07 12:41:39
+ 
