@@ -126,3 +126,9 @@ THUMBNAIL_ALIASES = {
 SOUTH_MIGRATION_MODULES = {
     'easy_thumbnails': 'easy_thumbnails.south_migrations',
 }
+
+# Load the production settings, overwrite the existing ones if needed
+try:
+    from settings_prod import *
+except ImportError:
+    pass
