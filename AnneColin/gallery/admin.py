@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gallery.models import Category, Format, Picture, Price
+from gallery.models import Category, Format, Picture
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -14,7 +14,10 @@ class PictureAdmin(admin.ModelAdmin):
     pass
 
 
+class FormatAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')
+    pass
+
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Format)
 admin.site.register(Picture, PictureAdmin)
-admin.site.register(Price)
+admin.site.register(Format, FormatAdmin)

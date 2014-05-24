@@ -19,15 +19,8 @@ def category(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
     categories = Category.objects.all().order_by('pub_date')
 
-    # Django 1.5 --> Pas encore first()
-    try:
-        previous_cat = Category.objects.filter(pub_date__lt=category.pub_date).order_by('-pub_date')[0]
-    except IndexError:
-        previous_cat = None
-    try:
-        next_cat = Category.objects.filter(pub_date__gt=category.pub_date).order_by('pub_date')[0]
-    except IndexError:
-        next_cat = None
+    previous_cat = Category.objects.filter(pub_date__lt=category.pub_date).order_by('-pub_date').first()
+    next_cat = Category.objects.filter(pub_date__gt=category.pub_date).order_by('pub_date').first()
 
     pictures = category.picture_set.all()
     return render(request, 'gallery/category.html',
@@ -43,17 +36,14 @@ def picture(request, picture_id):
     picture = get_object_or_404(Picture, pk=picture_id)
     pictures = picture.category.picture_set.all().order_by('pub_date')[:12]
 
-    # Django 1.5 --> Pas encore first()
-    try:
-        previous_pic = \
-        Picture.objects.filter(category__id=picture.category.id, pub_date__lt=picture.pub_date).order_by('-pub_date')[0]
-    except IndexError:
-        previous_pic = None
-    try:
-        next_pic = \
-        Picture.objects.filter(category__id=picture.category.id, pub_date__gt=picture.pub_date).order_by('pub_date')[0]
-    except IndexError:
-        next_pic = None
+    previous_pic = Picture.objects.filter(
+        category__id=picture.category.id,
+        pub_date__lt=picture.pub_date
+    ).order_by('-pub_date').first()
+    next_pic = Picture.objects.filter(
+        category__id=picture.category.id,
+        pub_date__gt=picture.pub_date
+    ).order_by('pub_date').first()
 
     return render(request, 'gallery/picture.html',
                   {

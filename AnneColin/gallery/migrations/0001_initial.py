@@ -23,6 +23,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=80)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True)),
+            ('price', self.gf('django.db.models.fields.IntegerField')()),
         ))
         db.send_create_signal(u'gallery', ['Format'])
 
@@ -37,14 +38,14 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'gallery', ['Picture'])
 
-        # Adding model 'Price'
-        db.create_table(u'gallery_price', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('picture', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['gallery.Picture'])),
-            ('format', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['gallery.Format'])),
-            ('value', self.gf('django.db.models.fields.IntegerField')()),
+        # Adding M2M table for field formats on 'Picture'
+        m2m_table_name = db.shorten_name(u'gallery_picture_formats')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('picture', models.ForeignKey(orm[u'gallery.picture'], null=False)),
+            ('format', models.ForeignKey(orm[u'gallery.format'], null=False))
         ))
-        db.send_create_signal(u'gallery', ['Price'])
+        db.create_unique(m2m_table_name, ['picture_id', 'format_id'])
 
 
     def backwards(self, orm):
@@ -57,8 +58,8 @@ class Migration(SchemaMigration):
         # Deleting model 'Picture'
         db.delete_table(u'gallery_picture')
 
-        # Deleting model 'Price'
-        db.delete_table(u'gallery_price')
+        # Removing M2M table for field formats on 'Picture'
+        db.delete_table(db.shorten_name(u'gallery_picture_formats'))
 
 
     models = {
@@ -74,24 +75,18 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Format'},
             'description': ('django.db.models.fields.TextField', [], {'null': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '80'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '80'}),
+            'price': ('django.db.models.fields.IntegerField', [], {})
         },
         u'gallery.picture': {
             'Meta': {'object_name': 'Picture'},
             'category': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['gallery.Category']"}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'formats': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['gallery.Format']", 'through': u"orm['gallery.Price']", 'symmetrical': 'False'}),
+            'formats': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['gallery.Format']", 'symmetrical': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
             'pub_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '80'})
-        },
-        u'gallery.price': {
-            'Meta': {'object_name': 'Price'},
-            'format': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['gallery.Format']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'picture': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['gallery.Picture']"}),
-            'value': ('django.db.models.fields.IntegerField', [], {})
         }
     }
 
