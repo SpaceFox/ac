@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class Category(models.Model):
@@ -8,6 +9,9 @@ class Category(models.Model):
     icon = models.ImageField(u'Icône', upload_to='categories')
     description = models.TextField(u'Description', blank=True, null=True)
     pub_date = models.DateTimeField(u'Date de publication', auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_id': self.id})
 
     def __unicode__(self):
         return self.name
@@ -34,6 +38,9 @@ class Picture(models.Model):
     image = models.ImageField(u'Image', upload_to='pictures')
     description = models.TextField(u'Description', blank=True, null=True)
     pub_date = models.DateTimeField(u'Date de publication', auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse('picture', kwargs={'picture_id': self.id})
 
     def __unicode__(self):
         return self.title
