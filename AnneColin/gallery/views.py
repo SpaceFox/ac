@@ -4,7 +4,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
-from gallery.models import Category, Picture
+from gallery.models import Category, Picture, Format
 
 
 class IndexView(generic.ListView):
@@ -52,3 +52,11 @@ def picture(request, picture_id):
                       'previous_pic': previous_pic,
                       'next_pic': next_pic,
                   })
+
+def prices(request):
+    prices = Format.objects.all()
+
+    return render(request, 'gallery/prices.html',
+            {
+                'prices': prices,
+            })

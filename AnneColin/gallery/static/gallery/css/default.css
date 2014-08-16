@@ -193,3 +193,21 @@ input[type=text], input[type=password], input[type=email], textarea {
 	float: right;
 	padding: 0;
 }
+#static_main table {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+#static_main table td {
+    border: 1px solid #ccc;
+    padding: 0.5em 0.5em;
+}
+#static_main table th {
+    border: 1px solid #ccc;
+    padding: 0.5em 0.5em;
+    text-align: left;
+    background-color: #ccc;
+    color: #000;
+}
+#static_main table tr:hover {
+    background-color: #444;
+}

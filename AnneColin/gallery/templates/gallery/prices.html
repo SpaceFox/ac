@@ -1,0 +1,30 @@
+{% extends "gallery/base.html" %}
+
+
+{% block content %}
+	<div id="static_main">
+        <h1>Liste des prix</h1>
+        <p>Les photographies sont numérotées et signées de la main de l'auteur, en série limitée de 1 à 30 exemplaires,
+        ce qui leur confère le statut d'oeuvres d'art.</p>
+        <p>Pour toute autre utilisation, <a href="/contact/">me contacter</a>.</p>
+		<table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for price in prices %}
+                <tr>
+                    <td>{{ price.name }}</td>
+                    <td>{{ price.price|floatformat:2 }}&nbsp;€</td>
+                    <td>{{ price.description }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+		</table>
+        <p>Si vous désirez un format absent de de tableau, n'hésitez pas à <a href="/contact/">me contacter</a>.</p>
+	</div>
+{% endblock %}

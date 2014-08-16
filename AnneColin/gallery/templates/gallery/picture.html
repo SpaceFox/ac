@@ -31,9 +31,9 @@
 			<h2>Tirages d'art</h2>
 			<ul>
 				{% for format in picture.formats.all %}
-					<li>{{ format.name }} : <strong>{{ format.price|floatformat:2 }} €</strong></li>
+					<li>{{ format.name }} : <strong>{{ format.price|floatformat:2 }}&nbsp;€</strong></li>
 				{% endfor %}
-				<li>Autres formats : <a href="">me contacter</a></li>
+				<li><a href="/prices/">Détail des prix</a></li>
 			</ul>
 		{% endif %}
 	</aside>
