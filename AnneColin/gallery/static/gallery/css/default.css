@@ -76,6 +76,7 @@ aside ul {
 }
 #main img {
 	padding: 0.5em;
+	border: 1px solid #fff;
 }
 #main.categories {
 	width: 100%;
@@ -130,6 +131,10 @@ aside h2 {
 }
 aside img {
 	padding: 1px;
+	border: 1px solid #ccc;
+}
+aside img:hover {
+    border: 1px solid #fff;
 }
 #thumbnails {
 	text-align: center;
