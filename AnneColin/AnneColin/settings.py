@@ -9,9 +9,20 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import locale
 import os
+import platform
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+
+# Python is platform-independent...or is it?
+if platform.system() == "Windows":
+    locale.setlocale(locale.LC_TIME, 'fra')
+else:
+    locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
+
+USE_L10N = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
