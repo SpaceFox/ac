@@ -21,6 +21,10 @@ header {
 header h1 {
 	margin: 0;
 }
+hr {
+    clear:both;
+    margin-top: 0.5em;
+}
 
 #speedbar {
 	position: absolute;
@@ -155,7 +159,7 @@ footer {
 	width: 171px;
 	height: 171px;
 	position: absolute;
-	margin-left: 1px;
+	margin: 1px;
 	font-size: 2em;
 	font-weight: bold;
 	text-align: center;

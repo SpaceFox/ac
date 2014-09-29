@@ -16,7 +16,6 @@
 {% block aside %}
 	<aside id="sidebar">
 		<h1>{{ category.name }}</h1>
-		<p>Mise à jour le <time datetime="{{ category.pub_date|date:"c" }}" pubdate="pubdate">{{ category.pub_date|date:"j E Y" }}</time></p>
 		<h2>Toutes les galeries</h2>
 		<ul id="thumbnails">
 		{% for side_category in categories %}

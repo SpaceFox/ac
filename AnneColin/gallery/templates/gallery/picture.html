@@ -16,7 +16,6 @@
 {% block aside %}
 	<aside id="sidebar">
 		<h1>{{ picture.title }}</h1>
-		<p>Publiée le <time datetime="{{ picture.pub_date|date:"c" }}" pubdate="pubdate">{{ picture.pub_date|date:"j E Y" }}</time</p>
 		<h2>Série <a href="{% url 'category' picture.category.id %}" title="Accès à la catégorie">{{ picture.category.name }}</a></h2>
 		<ul id="thumbnails">	<!-- 12 miniatures max (sans les prix) -->
 			{% for sidePicture in pictures %}
