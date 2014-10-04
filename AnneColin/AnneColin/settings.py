@@ -51,6 +51,7 @@ INSTALLED_APPS = (
 
     'south',
     'easy_thumbnails',
+    'crispy_forms',
     
     'gallery',
 )
@@ -137,6 +138,10 @@ THUMBNAIL_ALIASES = {
 SOUTH_MIGRATION_MODULES = {
     'easy_thumbnails': 'easy_thumbnails.south_migrations',
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap'
+
+MAIL_CONTACT = 'ujueseo.yeou@gmail.com'
 
 # Load the production settings, overwrite the existing ones if needed
 try:
