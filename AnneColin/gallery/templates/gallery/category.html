@@ -6,9 +6,13 @@
 	<div id="prev-next">
 		{% if previous_cat %}
 			<a id="nav-previous" href="{% url 'category' previous_cat.id %}" title="Accès à la catégorie {{ previous_cat.name }}">← Précédente</a>
+        {% else %}
+            <span>← Précédente</span>
 		{% endif %}
 		{% if next_cat %}
 			<a id="nav-next" href="{% url 'category' next_cat.id %}" title="Accès à la catégorie {{ next_cat.name }}">Suivante →</a>
+        {% else %}
+            <span>Suivante →</span>
 		{% endif %}
 	</div>
 {% endblock %}
