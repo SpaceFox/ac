@@ -48,3 +48,15 @@ class Picture(models.Model):
     class Meta:
         verbose_name = u"Image"
         verbose_name_plural = u"Images"
+
+class Message(models.Model):
+
+    date = models.DateTimeField(u'Date')
+    name = models.CharField(u'Nom', max_length=200)
+    email = models.CharField(u'Email', max_length=250)
+    subject = models.CharField(u'Sujet', max_length=200)
+    message = models.TextField(u'Message')
+
+    class Meta:
+        verbose_name = u"Message"
+        verbose_name_plural = u"Messages"

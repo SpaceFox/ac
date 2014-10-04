@@ -1,0 +1,24 @@
+{% extends "gallery/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div  id="static_main">
+    <h1>Contact</h1>
+	<p>Les photographies que vous voyez ici ne constituent qu'une partie de ma photothèque.</p>
+    <p>Si vous avez le moindre commentaire, si vous désirez le moindre renseigenemnt, n'hésitez pas à me contacter par
+    mail (<a href="mailto:annecolin@neuf.fr?subject=Contact site photo">annecolin@neuf.fr</a>) ou via le formulaire
+    ci-dessous.</p>
+
+    <h2>Formulaire de contact</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert-box {{ message.tags }}">
+                <span>{{ message }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% crispy form %}
+    <p>Tous les champs sont obligatoires.</p>
+</div>
+{% endblock %}

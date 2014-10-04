@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gallery.models import Category, Format, Picture
+from gallery.models import Category, Format, Picture, Message
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -18,6 +18,12 @@ class FormatAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
     pass
 
+
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'date', 'email', 'subject')
+    pass
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Picture, PictureAdmin)
 admin.site.register(Format, FormatAdmin)
+admin.site.register(Message, MessageAdmin)

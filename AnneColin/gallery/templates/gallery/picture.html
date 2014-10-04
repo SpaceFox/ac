@@ -6,9 +6,13 @@
 	<div id="prev-next">
 		{% if previous_pic %}
 			<a id="nav-previous" href="{% url 'picture' previous_pic.id %}" title="Accès à l'image {{ previous_pic.title }}">← Précédente</a>
+        {% else %}
+            <span>← Précédente</span>
 		{% endif %}
 		{% if next_pic %}
 			<a id="nav-next" href="{% url 'picture' next_pic.id %}" title="Accès à l'image {{ next_pic.title }}">Suivante →</a>
+        {% else %}
+            <span>Suivante →</span>
 		{% endif %}
 	</div>
 {% endblock %}

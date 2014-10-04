@@ -65,13 +65,28 @@ aside ul {
 	right: 220px;
 	text-align: center;	
 }
-#prev-next a {
+#prev-next a, #prev-next span {
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 }
 #prev-next a:hover {
     color: black;
     background-color: #CCC;
+}
+#prev-next span {
+    color: #888;
+}
+.control-group {
+    margin-top: 0.5em;
+}
+.textinput, .emailinput {
+    width: 30em;
+}
+.textarea {
+    width: 60em;
+}
+.asteriskField {
+    display: none;
 }
 
 #main {
