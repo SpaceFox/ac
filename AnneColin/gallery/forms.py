@@ -32,15 +32,15 @@ class ContactForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_class = 'form-alone'
-        self.helper.form_method = 'post'
+        self.helper.form_class = u'form-alone'
+        self.helper.form_method = u'post'
 
         self.helper.layout = Layout(
-            Field('name'),
-            Field('email'),
-            Field('subject'),
-            Field('message'),
+            Field(u'name'),
+            Field(u'email'),
+            Field(u'subject'),
+            Field(u'message'),
             ButtonHolder(
-                StrictButton(u'Envoyer', type='submit'),
+                StrictButton(u'Envoyer', type=u'submit'),
             )
         )
