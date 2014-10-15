@@ -30,15 +30,8 @@
 				</li>
 			{% endfor %}
 		</ul>
-		{% if picture.formats.all %}
-			<h2>Tirages d'art</h2>
-			<ul>
-				{% for format in picture.formats.all %}
-					<li>{{ format.name }} : <strong>{{ format.price|floatformat:2 }}&nbsp;€</strong></li>
-				{% endfor %}
-				<li><a href="/prices/">Détail des prix</a></li>
-			</ul>
-		{% endif %}
+        <h2>Tirages d'art</h2>
+        <p><a href="/prices/">Voir la fiche des prix</a></p>
 	</aside>
 {% endblock %}
 		
