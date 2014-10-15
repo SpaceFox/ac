@@ -230,3 +230,7 @@ input[type=text], input[type=password], input[type=email], textarea {
 #static_main table tr:hover {
     background-color: #444;
 }
+
+.nofloat {
+    float: none !important;
+}

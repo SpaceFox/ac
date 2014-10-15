@@ -1,11 +1,16 @@
 {% extends "gallery/base.html" %}
 
+{% load staticfiles %}
 
 {% block content %}
 	<div id="static_main">
         <h1>Liste des prix</h1>
-        <p>Les photographies sont numérotées et signées de la main de l'auteur, en série limitée de 1 à 30 exemplaires,
-        ce qui leur confère le statut d'oeuvres d'art.</p>
+        <p>Les tirages sont  réalisés sous contrôle de l'auteur, ils  sont numérotés et signés de la main de l'auteur en
+            série limitée de 1 à 30 exemplaires tous formats confondus, ce qui leur confère la valeur d’œuvres d'art.</p>
+        <p>Ils sont tirés sur traceur Epson 9900 avec encres pigmentaires Ultrachromes HDR sur Fuji Satin Photo Paper
+            270g , Ilford Galerie Smooth Pearl Paper 310g ou sur papier fine art Harmann By Hahnemülhe Matt Cotton
+            Smooth 300g par le laboratoire :</p>
+        <p><a href="http://www.photo-pcp.com"><img src="{% static 'gallery/graph/photo-pcp.png' %}" alt="Photo PCP" class="nofloat" /></a></p>
         <p>Pour toute autre utilisation, <a href="/contact/">me contacter</a>.</p>
 		<table>
             <thead>
