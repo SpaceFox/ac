@@ -1,5 +1,5 @@
 django==1.8.17
-pillow==2.8.1
+pillow==4.1.0
 easy-thumbnails==2.4.1
 django-crispy-forms==1.6.1
 PyYAML==3.12
