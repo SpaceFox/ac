@@ -49,7 +49,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
 
-    'south',
     'easy_thumbnails',
     'crispy_forms',
     
@@ -134,9 +133,6 @@ THUMBNAIL_ALIASES = {
         'aside': {'size': (90, 90)},
         'picture': {'size': (900, 600)},
     },
-}
-SOUTH_MIGRATION_MODULES = {
-    'easy_thumbnails': 'easy_thumbnails.south_migrations',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap'
