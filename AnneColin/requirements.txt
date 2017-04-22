@@ -1,6 +1,6 @@
-django>=1.6,<1.7
-south
-pillow
-easy-thumbnails
-django-crispy-forms
+django==1.6.11
+south==1.0.2
+pillow==2.8.1
+easy-thumbnails==2.2
+django-crispy-forms==1.4.0
 PyYAML==3.10
