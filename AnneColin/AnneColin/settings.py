@@ -33,8 +33,6 @@ SECRET_KEY = '&fd0(o@4zqfke&msfu=grs-5*#l0n5^1s8yw)ilhhv%gs8m23q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -135,9 +133,32 @@ THUMBNAIL_ALIASES = {
     },
 }
 
+MAIL_CONTACT = 'ujueseo.yeou@gmail.com'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                # Default context processors
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 
-MAIL_CONTACT = 'ujueseo.yeou@gmail.com'
 
 # Load the production settings, overwrite the existing ones if needed
 try:
