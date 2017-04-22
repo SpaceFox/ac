@@ -33,8 +33,6 @@ SECRET_KEY = '&fd0(o@4zqfke&msfu=grs-5*#l0n5^1s8yw)ilhhv%gs8m23q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -49,7 +47,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
 
-    'south',
     'easy_thumbnails',
     'crispy_forms',
     
@@ -135,13 +132,33 @@ THUMBNAIL_ALIASES = {
         'picture': {'size': (900, 600)},
     },
 }
-SOUTH_MIGRATION_MODULES = {
-    'easy_thumbnails': 'easy_thumbnails.south_migrations',
-}
+
+MAIL_CONTACT = 'ujueseo.yeou@gmail.com'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                # Default context processors
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 
-MAIL_CONTACT = 'ujueseo.yeou@gmail.com'
 
 # Load the production settings, overwrite the existing ones if needed
 try:

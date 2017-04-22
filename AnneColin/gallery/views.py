@@ -80,8 +80,8 @@ def contact(request):
             # Send email
             subject = data[u'subject']
             from_email = u"{0} <{1}>".format(data[u'name'], context[u'email'])
-            message_html = get_template(u"gallery/email/contact.html").render(Context(context))
-            message_txt = get_template(u"gallery/email/contact.txt").render(Context(context))
+            message_html = get_template(u"gallery/email/contact.html").render({'context': Context(context)})
+            message_txt = get_template(u"gallery/email/contact.txt").render({'context': Context(context)})
             msg = EmailMultiAlternatives(
                 subject,
                 message_txt,
