@@ -1,4 +1,4 @@
-django==1.9.13
+django==1.10.7
 pillow==4.1.0
 easy-thumbnails==2.4.1
 django-crispy-forms==1.6.1
