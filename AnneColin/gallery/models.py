@@ -1,62 +1,61 @@
-# coding: utf-8
 from django.db import models
 from django.core.urlresolvers import reverse
 
 
 class Category(models.Model):
 
-    name = models.CharField(u'Nom', max_length=80)
-    icon = models.ImageField(u'Icône', upload_to=u'categories')
-    description = models.TextField(u'Description', blank=True, null=True)
-    pub_date = models.DateTimeField(u'Date de publication', auto_now_add=True)
+    name = models.CharField('Nom', max_length=80)
+    icon = models.ImageField('Icône', upload_to='categories')
+    description = models.TextField('Description', blank=True, null=True)
+    pub_date = models.DateTimeField('Date de publication', auto_now_add=True)
 
     def get_absolute_url(self):
-        return reverse(u'category', kwargs={u'category_id': self.id})
+        return reverse('category', kwargs={'category_id': self.id})
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = u"Catégorie"
-        verbose_name_plural = u"Catégories"
+        verbose_name = "Catégorie"
+        verbose_name_plural = "Catégories"
 
 
 class Format(models.Model):
-    name = models.CharField(u'Nom', max_length=80)
-    description = models.TextField(u'Description', null=True)
-    price = models.DecimalField(u'Prix', max_digits=7, decimal_places=2)
+    name = models.CharField('Nom', max_length=80)
+    description = models.TextField('Description', null=True)
+    price = models.DecimalField('Prix', max_digits=7, decimal_places=2)
 
-    def __unicode__(self):
-        return u'{} ({:10.2f} €)'.format(self.name, self.price)
+    def __str__(self):
+        return '{} ({:10.2f} €)'.format(self.name, self.price)
 
 
 class Picture(models.Model):
 
     category = models.ForeignKey(Category)
     formats = models.ManyToManyField(Format)
-    title = models.CharField(u'Titre', max_length=80)
-    image = models.ImageField(u'Image', upload_to=u'pictures')
-    description = models.TextField(u'Description', blank=True, null=True)
-    pub_date = models.DateTimeField(u'Date de publication', auto_now_add=True)
+    title = models.CharField('Titre', max_length=80)
+    image = models.ImageField('Image', upload_to='pictures')
+    description = models.TextField('Description', blank=True, null=True)
+    pub_date = models.DateTimeField('Date de publication', auto_now_add=True)
 
     def get_absolute_url(self):
-        return reverse(u'picture', kwargs={u'picture_id': self.id})
+        return reverse('picture', kwargs={'picture_id': self.id})
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = u"Image"
-        verbose_name_plural = u"Images"
+        verbose_name = "Image"
+        verbose_name_plural = "Images"
 
 class Message(models.Model):
 
-    date = models.DateTimeField(u'Date')
-    name = models.CharField(u'Nom', max_length=200)
-    email = models.CharField(u'Email', max_length=250)
-    subject = models.CharField(u'Sujet', max_length=200)
-    message = models.TextField(u'Message')
+    date = models.DateTimeField('Date')
+    name = models.CharField('Nom', max_length=200)
+    email = models.CharField('Email', max_length=250)
+    subject = models.CharField('Sujet', max_length=200)
+    message = models.TextField('Message')
 
     class Meta:
-        verbose_name = u"Message"
-        verbose_name_plural = u"Messages"
+        verbose_name = "Message"
+        verbose_name_plural = "Messages"
